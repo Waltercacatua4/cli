@@ -8,6 +8,7 @@ import (
 	"github.com/cli/cli/v2/pkg/cmdutil"
 	"github.com/cli/cli/v2/pkg/iostreams"
 	"github.com/cli/cli/v2/utils"
+	"github.com/cli/go-gh/pkg/text"
 	"github.com/spf13/cobra"
 )
 
@@ -72,7 +73,7 @@ func listRun(opts *ListOptions) error {
 
 		createdAt := sshKey.CreatedAt.Format(time.RFC3339)
 		if t.IsTTY() {
-			createdAt = utils.FuzzyAgoAbbr(now, sshKey.CreatedAt)
+			createdAt = text.FuzzyAgoAbbr(now, sshKey.CreatedAt)
 		}
 		t.AddField(createdAt, nil, cs.Gray)
 		t.EndRow()

@@ -12,6 +12,7 @@ import (
 	"github.com/cli/cli/v2/pkg/cmdutil"
 	"github.com/cli/cli/v2/pkg/iostreams"
 	"github.com/cli/cli/v2/utils"
+	"github.com/cli/go-gh/pkg/text"
 	"github.com/spf13/cobra"
 )
 
@@ -154,7 +155,7 @@ func listRun(opts *ListOptions) error {
 		tp.AddField(fmt.Sprintf("%d", run.ID), nil, cs.Cyan)
 
 		tp.AddField(run.Duration(opts.now).String(), nil, nil)
-		tp.AddField(utils.FuzzyAgoAbbr(time.Now(), run.StartedTime()), nil, nil)
+		tp.AddField(text.FuzzyAgoAbbr(time.Now(), run.StartedTime()), nil, nil)
 		tp.EndRow()
 	}
 

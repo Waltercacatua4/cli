@@ -17,7 +17,7 @@ import (
 	prShared "github.com/cli/cli/v2/pkg/cmd/pr/shared"
 	"github.com/cli/cli/v2/pkg/cmdutil"
 	"github.com/cli/cli/v2/pkg/iostreams"
-	"github.com/cli/cli/v2/utils"
+	"github.com/cli/go-gh/pkg/text"
 	"github.com/shurcooL/githubv4"
 	"github.com/spf13/cobra"
 )
@@ -158,7 +158,7 @@ func listRun(opts *ListOptions) error {
 		}
 
 		if isTerminal {
-			fmt.Fprintf(opts.IO.ErrOut, "Opening %s in your browser.\n", utils.DisplayURL(openURL))
+			fmt.Fprintf(opts.IO.ErrOut, "Opening %s in your browser.\n", text.DisplayURL(openURL))
 		}
 		return opts.Browser.Browse(openURL)
 	}

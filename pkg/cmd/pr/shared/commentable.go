@@ -14,7 +14,7 @@ import (
 	"github.com/cli/cli/v2/pkg/cmdutil"
 	"github.com/cli/cli/v2/pkg/iostreams"
 	"github.com/cli/cli/v2/pkg/surveyext"
-	"github.com/cli/cli/v2/utils"
+	"github.com/cli/go-gh/pkg/text"
 	"github.com/spf13/cobra"
 )
 
@@ -86,7 +86,7 @@ func CommentableRun(opts *CommentableOptions) error {
 	case InputTypeWeb:
 		openURL := commentable.Link() + "#issuecomment-new"
 		if opts.IO.IsStdoutTTY() && !opts.Quiet {
-			fmt.Fprintf(opts.IO.ErrOut, "Opening %s in your browser.\n", utils.DisplayURL(openURL))
+			fmt.Fprintf(opts.IO.ErrOut, "Opening %s in your browser.\n", text.DisplayURL(openURL))
 		}
 		return opts.OpenInBrowser(openURL)
 	case InputTypeEditor:

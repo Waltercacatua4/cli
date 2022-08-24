@@ -17,6 +17,7 @@ import (
 	"github.com/cli/cli/v2/pkg/iostreams"
 	"github.com/cli/cli/v2/pkg/markdown"
 	"github.com/cli/cli/v2/utils"
+	"github.com/cli/go-gh/pkg/text"
 	"github.com/spf13/cobra"
 )
 
@@ -123,7 +124,7 @@ func runView(opts *ViewOptions) error {
 			address = ghrepo.GenerateRepoURL(repo, "actions/workflows/%s", url.QueryEscape(workflow.Base()))
 		}
 		if opts.IO.IsStdoutTTY() {
-			fmt.Fprintf(opts.IO.Out, "Opening %s in your browser.\n", utils.DisplayURL(address))
+			fmt.Fprintf(opts.IO.Out, "Opening %s in your browser.\n", text.DisplayURL(address))
 		}
 		return opts.Browser.Browse(address)
 	}

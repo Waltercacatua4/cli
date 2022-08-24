@@ -9,6 +9,7 @@ import (
 	"github.com/cli/cli/v2/internal/codespaces/api"
 	"github.com/cli/cli/v2/pkg/cmdutil"
 	"github.com/cli/cli/v2/utils"
+	"github.com/cli/go-gh/pkg/text"
 	"github.com/spf13/cobra"
 )
 
@@ -144,7 +145,7 @@ func (a *App) List(ctx context.Context, opts *listOptions, exporter cmdutil.Expo
 			if err != nil {
 				return fmt.Errorf("error parsing date %q: %w", c.CreatedAt, err)
 			}
-			tp.AddField(utils.FuzzyAgoAbbr(time.Now(), ct), nil, cs.Gray)
+			tp.AddField(text.FuzzyAgoAbbr(time.Now(), ct), nil, cs.Gray)
 		} else {
 			tp.AddField(c.CreatedAt, nil, nil)
 		}

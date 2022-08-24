@@ -6,7 +6,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/cli/cli/v2/pkg/text"
+	"github.com/cli/go-gh/pkg/text"
 )
 
 const (

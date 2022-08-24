@@ -10,7 +10,7 @@ import (
 	"github.com/cli/cli/v2/pkg/cmd/release/shared"
 	"github.com/cli/cli/v2/pkg/cmdutil"
 	"github.com/cli/cli/v2/pkg/iostreams"
-	"github.com/cli/cli/v2/utils"
+	"github.com/cli/go-gh/pkg/text"
 	"github.com/spf13/cobra"
 )
 
@@ -115,7 +115,7 @@ func uploadRun(opts *UploadOptions) error {
 	if opts.IO.IsStdoutTTY() {
 		iofmt := opts.IO.ColorScheme()
 		fmt.Fprintf(opts.IO.Out, "Successfully uploaded %s to %s\n",
-			utils.Pluralize(len(opts.Assets), "asset"),
+			text.Pluralize(len(opts.Assets), "asset"),
 			iofmt.Bold(release.TagName))
 	}
 

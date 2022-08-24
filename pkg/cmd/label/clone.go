@@ -11,7 +11,7 @@ import (
 	"github.com/cli/cli/v2/internal/ghrepo"
 	"github.com/cli/cli/v2/pkg/cmdutil"
 	"github.com/cli/cli/v2/pkg/iostreams"
-	"github.com/cli/cli/v2/utils"
+	"github.com/cli/go-gh/pkg/text"
 	"github.com/spf13/cobra"
 	"golang.org/x/sync/errgroup"
 )
@@ -94,7 +94,7 @@ func cloneRun(opts *cloneOptions) error {
 	if opts.IO.IsStdoutTTY() {
 		cs := opts.IO.ColorScheme()
 		pluralize := func(num int) string {
-			return utils.Pluralize(num, "label")
+			return text.Pluralize(num, "label")
 		}
 
 		successCount := int(successCount)

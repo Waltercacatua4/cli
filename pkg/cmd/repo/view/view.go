@@ -16,7 +16,7 @@ import (
 	"github.com/cli/cli/v2/pkg/cmdutil"
 	"github.com/cli/cli/v2/pkg/iostreams"
 	"github.com/cli/cli/v2/pkg/markdown"
-	"github.com/cli/cli/v2/utils"
+	"github.com/cli/go-gh/pkg/text"
 	"github.com/spf13/cobra"
 )
 
@@ -128,7 +128,7 @@ func viewRun(opts *ViewOptions) error {
 	openURL := generateBranchURL(toView, opts.Branch)
 	if opts.Web {
 		if opts.IO.IsStdoutTTY() {
-			fmt.Fprintf(opts.IO.ErrOut, "Opening %s in your browser.\n", utils.DisplayURL(openURL))
+			fmt.Fprintf(opts.IO.ErrOut, "Opening %s in your browser.\n", text.DisplayURL(openURL))
 		}
 		return opts.Browser.Browse(openURL)
 	}

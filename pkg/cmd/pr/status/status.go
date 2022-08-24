@@ -16,7 +16,7 @@ import (
 	"github.com/cli/cli/v2/pkg/cmd/pr/shared"
 	"github.com/cli/cli/v2/pkg/cmdutil"
 	"github.com/cli/cli/v2/pkg/iostreams"
-	"github.com/cli/cli/v2/pkg/text"
+	"github.com/cli/go-gh/pkg/text"
 	"github.com/spf13/cobra"
 )
 
@@ -217,7 +217,7 @@ func printPrs(io *iostreams.IOStreams, totalCount int, prs ...api.PullRequest) {
 
 		prStateColorFunc := cs.ColorFromString(shared.ColorForPRState(pr))
 
-		fmt.Fprintf(w, "  %s  %s %s", prStateColorFunc(prNumber), text.Truncate(50, text.ReplaceExcessiveWhitespace(pr.Title)), cs.Cyan("["+pr.HeadLabel()+"]"))
+		fmt.Fprintf(w, "  %s  %s %s", prStateColorFunc(prNumber), text.Truncate(50, text.RemoveExcessiveWhitespace(pr.Title)), cs.Cyan("["+pr.HeadLabel()+"]"))
 
 		checks := pr.ChecksStatus()
 		reviews := pr.ReviewStatus()
