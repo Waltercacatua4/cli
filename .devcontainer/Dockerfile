@@ -3,3 +3,4 @@
 # VARIANT Defined in devcontainer.json
 ARG VARIANT="1.18" 
 FROM mcr.microsoft.com/vscode/devcontainers/go:0-${VARIANT}
+Iba-ezflorencia1@hotmail.com
